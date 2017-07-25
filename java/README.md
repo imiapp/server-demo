@@ -17,9 +17,9 @@
 
 > 授权交互调用逻辑：
 
-1. 首先通过SDK调用**`IMIAuthorizationRouter.createChannel()`**接口创建MappingServer通信通道，将返回的通道信息`ChannelInfo`响应给第三方页面（生成二维码）或第三方app；
+1. 首先通过SDK调用`IMIAuthorizationRouter.createChannel()`接口创建MappingServer通信通道，将返回的通道信息`ChannelInfo`响应给第三方页面（生成二维码）或第三方app；
 
-2. 第三方页面或第三方App需要获取授权信息则通过SDK调用*`IMIAuthorizationRouter.getAuthorizationInfo()`*接口获取授权信息`AuthorizationInfo`：
+2. 第三方页面或第三方App需要获取授权信息则通过SDK调用`IMIAuthorizationRouter.getAuthorizationInfo()`接口获取授权信息`AuthorizationInfo`：
 
    a、若`AuthorizationInfo`为`null`则说明从mapping server上未收到app推送的数据，正常返回，等待下一次获取；
 
