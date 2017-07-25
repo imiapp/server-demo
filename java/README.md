@@ -11,7 +11,7 @@
 
 ## 二、代码描述：
 
-- server-demo从**v1.0.2**开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：**http://host:port/index**
+- server-demo从**v1.0.2**开始已经集成了IMI JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，访问地址：**http://host:port/index**
 
 ## 三、业务逻辑描述：
 
