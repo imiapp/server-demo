@@ -4,22 +4,22 @@
 
 ## 一、目录描述：
 
-- server-demo-src-x.x.x为示例代码目录，<u>x.x.x</u>为版本号；
+- server-demo-src-x.x.x为示例代码目录，***x.x.x***为版本号；
 
 
 - “Server-SDK对接Demo代码说明x.x.x.pdf”为代码说明文档，及http接口设计参考；此文档的版本号与server-demo-src的版本号一一对应。
 
 ## 二、代码描述：
 
-- server-demo从**v1.0.2**开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：**http://host:port/index**
+- server-demo从***v1.0.2***开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：***http://host:port/index***
 
 ## 三、业务逻辑描述：
 
 > 授权交互调用逻辑：
 
-1. 首先通过SDK调用<u>*IMIAuthorizationRouter.createChannel()*</u>接口创建MappingServer通信通道，将返回的通道信息ChannelInfo响应给第三方页面（生成二维码）或第三方app；
+1. 首先通过SDK调用***IMIAuthorizationRouter.createChannel()***接口创建MappingServer通信通道，将返回的通道信息ChannelInfo响应给第三方页面（生成二维码）或第三方app；
 
-2. 第三方页面或第三方App需要获取授权信息则通过SDK调用<u>*IMIAuthorizationRouter.getAuthorizationInfo()*</u>接口获取授权信息AuthorizationInfo：
+2. 第三方页面或第三方App需要获取授权信息则通过SDK调用***IMIAuthorizationRouter.getAuthorizationInfo()***接口获取授权信息AuthorizationInfo：
 
    a、若AuthorizationInfo为null则说明从mapping server上未收到app推送的数据，正常返回，等待下一次获取；
 
