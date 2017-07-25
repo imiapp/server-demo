@@ -1,6 +1,6 @@
 # server-demo-java
 
-本目录为java版server-sdk对接示例代码目录：
+> 本目录为java版server-sdk对接示例代码目录：
 
 ## 一、目录描述：
 
@@ -11,11 +11,11 @@
 
 ## 二、代码描述：
 
-- server-demo从***v1.0.2***开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：***http://host:port/index***
+- server-demo从**v1.0.2**开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：**http://host:port/index**
 
 ## 三、业务逻辑描述：
 
-授权交互调用逻辑：
+> 授权交互调用逻辑：
 
 1. 首先通过SDK调用<u>*IMIAuthorizationRouter.createChannel()*</u>接口创建MappingServer通信通道，将返回的通道信息ChannelInfo响应给第三方页面（生成二维码）或第三方app；
 
