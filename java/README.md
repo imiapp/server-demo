@@ -27,3 +27,5 @@
 
 3. 第三方用户Http接口响应信息`AuthorizationInfoRes`可根据业务需求自行从授权信息`AuthorizationInfo`对象中获取并组装。
 
+   ​
+
