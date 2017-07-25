@@ -2,18 +2,18 @@
 
 本目录为java版server-sdk对接示例代码目录：
 
-##一、目录描述：
+## 一、目录描述：
 
 - server-demo-src-x.x.x为示例代码目录，<u>x.x.x</u>为版本号；
 
 
 - “Server-SDK对接Demo代码说明x.x.x.pdf”为代码说明文档，及http接口设计参考；此文档的版本号与server-demo-src的版本号一一对应。
 
-##二、代码描述：
+## 二、代码描述：
 
 - server-demo从***v1.0.2***开始已经集成了JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，首页访问地址：***http://host:port/index***
 
-##三、业务逻辑描述：
+## 三、业务逻辑描述：
 
 授权交互调用逻辑：
 
