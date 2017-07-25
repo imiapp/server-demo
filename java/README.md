@@ -1,6 +1,6 @@
 # server-demo-java
 
-> 本目录为java版server-sdk对接示例代码目录：
+> 本目录为[java版server-sdk](https://github.com/imiapp/imi-sdk/tree/master/Server-SDK/Java/Server)对接示例代码目录：
 
 ## 一、目录描述：
 
@@ -11,7 +11,7 @@
 
 ## 二、代码描述：
 
-- server-demo从**v1.0.2**开始已经集成了IMI JavaScript-SDK代码，可以直接运行本示例代码进行演示页面访问，访问地址：**http://host:port/index**
+- server-demo从**v1.0.2**开始已经集成了IMI [JavaScript-SDK](https://github.com/imiapp/imi-sdk/tree/master/Server-SDK/JavaScript)代码，可以直接运行本示例代码进行演示页面访问，访问地址：**http://host:port/index**
 
 ## 三、业务逻辑描述：
 
