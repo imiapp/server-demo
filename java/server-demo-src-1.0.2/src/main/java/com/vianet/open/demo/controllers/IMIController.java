@@ -127,24 +127,28 @@ public class IMIController {
              * 2、若AuthorizationInfo非null则说明正常获取到app推送的授权信息，
              *      此时获取的Authorizer一定是非null的，LoginUserInfo与IdentityCardInfo就不一定非null，根据接口调用时传的scope决定；
              */
-            // 第三方用户应用接口返回授权信息类，第三方用户更加自己需要的数据定义此类的属性
+            // 第三方用户应用接口返回授权信息类，第三方用户根据自己需要的数据定义此类的属性
             AuthorizationInfoRes infoRes = null;
 
+            // 调用SDK获取授权信息
             AuthorizationInfo authorizationInfo = IMIAuthorizationRouter.getAuthorizationInfo(params);
 
             if (null != authorizationInfo) {
                 // 封装第三方应用需要的数据
                 infoRes = new AuthorizationInfoRes();
 
+                // 封装授权用户数字身份号
                 Authorizer authorizer = authorizationInfo.getAuthorizer();
                 infoRes.setVportId(authorizer.getVportId());
 
+                // 封装授权用户信息
                 LoginUserInfo loginUserInfo = authorizationInfo.getLoginUserInfo();
                 if (null != loginUserInfo) {
                     infoRes.setUserName(loginUserInfo.getUserName());
                     infoRes.setMobile(loginUserInfo.getMobile());
                 }
 
+                // 封装授权身份信息
                 IdentityCardInfo identityCardInfo = authorizationInfo.getIdentityCardInfo();
                 if (null != identityCardInfo) {
                     infoRes.setAuthority(identityCardInfo.getAuthority());
