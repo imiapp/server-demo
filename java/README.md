@@ -6,7 +6,6 @@
 
 - server-demo-src-x.x.x为示例代码目录，**x.x.x**为版本号；
 
-
 - “Server-SDK对接Demo代码说明x.x.x.pdf”为代码说明文档，及http接口设计参考；此文档的版本号与server-demo-src的版本号一一对应。
 
 ## 二、代码描述：
@@ -25,7 +24,40 @@
 
    b、若`AuthorizationInfo`非`null`则说明正常获取到app推送的授权信息，此时获取的授权人信息Authorizer一定是非`null`的，而授权登录用户信息`LoginUserInfo`与授权身份信息`IdentityCardInfo`就不一定非`null`，根据接口调用时传的参数scope决定；
 
-3. 第三方用户Http接口响应信息`AuthorizationInfoRes`可根据业务需求自行从授权信息`AuthorizationInfo`对象中获取并组装。
+3. 第三方用户Http接口响应信息`AuthorizationInfoRes`可根据业务需求自行从授权信息`AuthorizationInfo`对象中获取并组装。  
 
-   ​
+      #### 授权信息封装示例：
+    
+            // 第三方用户应用接口返回授权信息类，第三方用户根据自己需要的数据定义此类的属性
+            AuthorizationInfoRes infoRes = null;
 
+            // 调用SDK获取授权信息
+            AuthorizationInfo authorizationInfo = IMIAuthorizationRouter.getAuthorizationInfo(params);
+
+            if (null != authorizationInfo) {
+                // 封装第三方应用需要的数据
+                infoRes = new AuthorizationInfoRes();
+
+                // 封装授权用户数字身份号
+                Authorizer authorizer = authorizationInfo.getAuthorizer();
+                infoRes.setVportId(authorizer.getVportId());
+
+                // 封装授权用户信息
+                LoginUserInfo loginUserInfo = authorizationInfo.getLoginUserInfo();
+                if (null != loginUserInfo) {
+                    infoRes.setUserName(loginUserInfo.getUserName());
+                    infoRes.setMobile(loginUserInfo.getMobile());
+                }
+
+                // 封装授权身份信息
+                IdentityCardInfo identityCardInfo = authorizationInfo.getIdentityCardInfo();
+                if (null != identityCardInfo) {
+                    infoRes.setAuthority(identityCardInfo.getAuthority());
+                    infoRes.setCin(identityCardInfo.getCin());
+                    infoRes.setDob(identityCardInfo.getDateBirth());
+                    infoRes.setDoe(identityCardInfo.getDateExpiry());
+                    infoRes.setDoi(identityCardInfo.getDateIssue());
+                    infoRes.setName(identityCardInfo.getName());
+                    infoRes.setSex(identityCardInfo.getSex());
+                }
+            }
