@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>二维码生成</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="./js/vport.js"></script>
+<style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: url("images/bg.png") no-repeat;
+        }
+        #bg{
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.398039);
+            text-align: center;
+            display: block;
+        }
+        .connVport{
+            position: relative;
+            top: 35%;
+            display: inline-block;
+            z-index: 101;
+            font-size: 1em;
+            font-weight: 500;
+            cursor:pointer;
+            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            transform: translateY(-50%);
+            margin: 0 auto;
+            border: 1px solid #fff;
+            background: none;
+            color: #fff;
+            padding: 8px 50px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .success {
+            display: none;
+            color: #fff;
+            text-align: center;
+            width: 480px;
+             position: absolute;
+            top: 100px;
+            left: 32%;
+        }
+        .success p {
+            border-bottom: 1px solid #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+        button {
+            border: 1px solid #fff;
+            background: none;
+            color: #fff;
+            padding: 8px 50px;
+            margin-top: 35px;
+            outline:none;
+        }
+</style>
+</head>
+<body>
+<div id="bg" style=''>
+    <div class="connVport" id="snsapi_info">
+        获取登陆信息
+    </div>
+    <div class="connVport" id="snsapi_idcard" style="margin-left: 50px;">
+        获取身份信息
+    </div>
+    <div class="success" id="success">
+        <ul id="show">
+            <li>vport身份</li>
+            <li><p>040cc4cfg00..</p></li>
+            <li>姓名</li>
+            <li><p>麦克</p></li>
+        </ul>
+        <button class="cancel">登录成功</button>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("#snsapi_info").click(function(){
+            vport('/imi/createChannel','/imi/getAuthorizationInfo', '/thirdweb/b.php','snsapi_info','2.0.5');
+        });
+        $("#snsapi_idcard").click(function(){
+            vport('/imi/createChannel','/imi/getAuthorizationInfo', '/thirdweb/b.php','snsapi_idcard','2.0.5');
+        });
+    });
+</script>
+</body>
+</html>
