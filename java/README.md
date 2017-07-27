@@ -61,3 +61,12 @@
                     infoRes.setSex(identityCardInfo.getSex());
                 }
             }
+
+## 四、版本日志
+
+  | 版本号   | 版本描述                                     |
+  | ----- | ---------------------------------------- |
+  | 1.0.0 | 基于server-sdk-1.0.0基础版本发布 |
+  | 1.0.1 | 基于server-sdk-1.0.1，去掉回调处理 |
+  | 1.0.2 | 基于server-sdk-1.0.1，集成js-sdk内容 |
+  | 1.0.3 | 基于server-sdk-1.0.2，通信通道实体`ChannelInfo`中添加生成二维码的原始数据信息属性`qrData` |
