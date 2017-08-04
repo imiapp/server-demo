@@ -31,8 +31,8 @@
             // 第三方用户应用接口返回授权信息类，第三方用户根据自己需要的数据定义此类的属性
             AuthorizationInfoRes infoRes = null;
 
-            // 调用SDK获取授权信息
-            AuthorizationInfo authorizationInfo = IMIAuthorizationRouter.getAuthorizationInfo(params);
+            // 调用SDK获取授权信息，这里可能会throw Exception，请在整体逻辑中使用try-catch进行保护
+            AuthorizationInfo authorizationInfo = IMIAuthorizationRouter.getAuthorizationInfo(params);
 
             if (null != authorizationInfo) {
                 // 封装第三方应用需要的数据
@@ -49,7 +49,7 @@
                     infoRes.setMobile(loginUserInfo.getMobile());
                 }
 
-                // 封装授权身份信息
+                // 封装授权身份信息，这里可能会throw Exception，请在整体逻辑中使用try-catch进行保护
                 IdentityCardInfo identityCardInfo = authorizationInfo.getIdentityCardInfo();
                 if (null != identityCardInfo) {
                     infoRes.setAuthority(identityCardInfo.getAuthority());
