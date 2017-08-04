@@ -27,11 +27,11 @@
 3. 第三方用户Http接口响应信息`AuthorizationInfoRes`可根据业务需求自行从授权信息`AuthorizationInfo`对象中获取并组装。  
 
       #### 授权信息封装示例：
-    
+     ```xml
             // 第三方用户应用接口返回授权信息类，第三方用户根据自己需要的数据定义此类的属性
             AuthorizationInfoRes infoRes = null;
 
-            // 调用SDK获取授权信息，这里可能会throw Exception，请在整体逻辑中使用try-catch进行保护
+            // 调用SDK获取授权信息，这里可能会throw Exception，请在整体逻辑中使用try-catch进行保护  
             AuthorizationInfo authorizationInfo = IMIAuthorizationRouter.getAuthorizationInfo(params);
 
             if (null != authorizationInfo) {
@@ -61,6 +61,7 @@
                     infoRes.setSex(identityCardInfo.getSex());
                 }
             }
+```
 
 ## 四、版本日志
 
