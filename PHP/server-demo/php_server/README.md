@@ -19,5 +19,4 @@
 
 
 在线测试地址：
-	获取topicId：http://172.16.192.105:85/imi/getTopic.php
-	获取用户信息：http://172.16.192.105:85/imi/getInfo.php
+	http://172.16.192.105:85/imi/client/vport.html
