@@ -28,7 +28,8 @@ class Jwt{
 		$this->readKeyStore();
 	}
 
-	public function createChannel($scope){
+	public function createChannel($scope, $version = '2.0'){
+		$this->version = $version;
 		$this->scope = $scope;
 		$params = array("scope"=>$this->scope,"version"=>$this->version);
 		$idAddr = $this->getIdAddr();
@@ -53,7 +54,12 @@ class Jwt{
 		$info['openid'] = $this->openid;
 		$info['name'] = $this->name;
 		$info['version'] = $this->version;
-		$info['scope'] = $params['scope'][0].','.$params['scope'][1];
+		if(count($params['scope'])>1){
+			$info['scope'] = $params['scope'][0].','.$params['scope'][1];
+		}else{
+			$info['scope'] = $params['scope'][0];
+		}
+		//$info['scope'] = $params['scope'][0].','.$params['scope'][1];
 		return $info;
 	}
 	public function getAuthorizationInfo($topicId,$scope){
@@ -170,8 +176,8 @@ class Jwt{
 		}elseif ($sc == 'snsapi_info'){
 			$newData['userName'] = $data['claim']['assertion']['userName'];
 			$newData['mobile'] = $data['claim']['assertion']['mobile'];
-			$newData['email'] = $data['claim']['assertion']['email'];
-			$newData['image'] = array('type'=>$data['claim']['assertion']['image']['type'],'data'=>$data['claim']['assertion']['image']['data']);
+			$newData['email'] = isset($data['claim']['assertion']['email']) ? $data['claim']['assertion']['email'] : '';
+			//$newData['image'] = array('type'=>$data['claim']['assertion']['image']['type'],'data'=>$data['claim']['assertion']['image']['data']);
 			
 			if($data['issuer']['vportId']==''){
 				echo "IMI server call exception: response vportId is error";die();
